@@ -9,8 +9,9 @@ variable "https_port" {
 variable "grpc_port" {
   defaults = "8502"
 }
+
 variable "cluster_rpc_port" {
-  defaults = "8600"
+  defaults = "8300"
 }
 variable "lan_serf" {
   defaults = "8301"
