@@ -14,6 +14,6 @@ output "cluster_rpc_port" {
   value = var.cluster_rpc_port
 }
 
-output "lan_serf" {
-  value = var.lan_serf
+output "wan_serf" {
+  value = var.wan_serf
 }

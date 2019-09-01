@@ -38,6 +38,13 @@ resource "aws_security_group" "consul_security_group" {
     to_port     = var.lan_serf
   }
 
+  ingress {
+    cidr_blocks = var.cidr_blocks
+    protocol    = "tcp"
+    from_port   = var.wan_serf
+    to_port     = var.wan_serf
+  }
+
   egress {
     cidr_blocks = ["0.0.0.0/0"]
     protocol    = "-1"

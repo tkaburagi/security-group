@@ -17,6 +17,10 @@ variable "lan_serf" {
   default = "8301"
 }
 
+variable "lan_serf" {
+  default = "8302"
+}
+
 variable "cidr_blocks" {
   type    = list(string)
   default = ["0.0.0.0/0"]
