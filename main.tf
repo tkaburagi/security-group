@@ -1,6 +1,6 @@
 resource "aws_security_group" "security_group" {
-  name        = "consul_security_group"
-  description = "Consul Sercuriy Group"
+  name        = "hashistack_security_group"
+  description = "HashiStack Sercuriy Group"
   vpc_id      = var.vpc_id
 
   ingress {
