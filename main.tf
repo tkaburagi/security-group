@@ -1,4 +1,4 @@
-resource "aws_security_group" "consul_security_group" {
+resource "aws_security_group" "security_group" {
   name        = "consul_security_group"
   description = "Consul Sercuriy Group"
   vpc_id      = var.vpc_id
