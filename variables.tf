@@ -1,24 +1,31 @@
 variable "vpc_id" {}
 
-variable "http_port" {
+variable "consul_http_port" {
   default = "8500"
 }
-variable "https_port" {
+
+variable "consul_https_port" {
   default = "8501"
 }
-variable "grpc_port" {
+
+variable "consul_grpc_port" {
   default = "8502"
 }
 
-variable "cluster_rpc_port" {
+variable "consul_cluster_rpc_port" {
   default = "8300"
 }
-variable "lan_serf" {
+
+variable "consul_lan_serf" {
   default = "8301"
 }
 
-variable "lan_serf" {
+variable "consul_wan_serf" {
   default = "8302"
+}
+
+variable "vault_http_port" {
+  default = "8200"
 }
 
 variable "cidr_blocks" {

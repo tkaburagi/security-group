@@ -4,45 +4,80 @@ resource "aws_security_group" "consul_security_group" {
   vpc_id      = var.vpc_id
 
   ingress {
+    from_port = -1
+    to_port = -1
+    protocol = "icmp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 443
+    to_port     = 443
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 80
+    to_port     = 80
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port = var.vault_http_port
+    to_port = var.vault_http_port
+  }
+
+  ingress {
     protocol    = "tcp"
     cidr_blocks = var.cidr_blocks
-    from_port   = var.http_port
-    to_port     = var.http_port
+    from_port   = var.consul_http_port
+    to_port     = var.consul_http_port
   }
 
   ingress {
     cidr_blocks = var.cidr_blocks
     protocol    = "tcp"
-    from_port   = var.https_port
-    to_port     = var.https_port
+    from_port   = var.consul_https_port
+    to_port     = var.consul_https_port
   }
 
   ingress {
     cidr_blocks = var.cidr_blocks
     protocol    = "tcp"
-    from_port   = var.grpc_port
-    to_port     = var.grpc_port
+    from_port   = var.consul_grpc_port
+    to_port     = var.consul_grpc_port
   }
 
   ingress {
     cidr_blocks = var.cidr_blocks
     protocol    = "tcp"
-    from_port   = var.cluster_rpc_port
-    to_port     = var.cluster_rpc_port
+    from_port   = var.consul_cluster_rpc_port
+    to_port     = var.consul_cluster_rpc_port
   }
 
   ingress {
     cidr_blocks = var.cidr_blocks
     protocol    = "tcp"
-    from_port   = var.lan_serf
-    to_port     = var.lan_serf
+    from_port   = var.consul_lan_serf
+    to_port     = var.consul_lan_serf
   }
 
   ingress {
     cidr_blocks = var.cidr_blocks
     protocol    = "tcp"
-    from_port   = var.wan_serf
-    to_port     = var.wan_serf
+    from_port   = var.consul_wan_serf
+    to_port     = var.consul_wan_serf
   }
 
   egress {
