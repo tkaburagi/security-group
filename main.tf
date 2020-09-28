@@ -30,7 +30,8 @@ resource "aws_security_group" "security_group" {
     to_port     = 80
     cidr_blocks     = ["0.0.0.0/0"]
   }
-  
+
+  # for the cluster-2
   ingress {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
