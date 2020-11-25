@@ -31,6 +31,7 @@ resource "aws_security_group" "security_group" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
+
   # for the cluster-2
   ingress {
     protocol    = "tcp"
@@ -86,6 +87,13 @@ resource "aws_security_group" "security_group" {
     protocol    = "tcp"
     from_port   = var.consul_wan_serf
     to_port     = var.consul_wan_serf
+  }
+
+  ingress {
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port = var.nomad_http_port
+    to_port = var.nomad_http_port
   }
 
   egress {

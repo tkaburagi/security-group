@@ -28,6 +28,10 @@ variable "vault_http_port" {
   default = "8200"
 }
 
+variable "nomad_http_port" {
+  default = "4646"
+}
+
 variable "cidr_blocks" {
   type    = list(string)
   default = ["0.0.0.0/0"]
