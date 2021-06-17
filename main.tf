@@ -31,6 +31,13 @@ resource "aws_security_group" "security_group" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
+  ingress {
+    protocol    = "tcp"
+    from_port   = 8080
+    to_port     = 8080
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
 
   # for the cluster-2
   ingress {
@@ -91,7 +98,7 @@ resource "aws_security_group" "security_group" {
 
   ingress {
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.cidr_blocks
     from_port = var.nomad_http_port
     to_port = var.nomad_http_port
   }
